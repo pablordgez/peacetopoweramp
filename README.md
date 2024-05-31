@@ -9,6 +9,7 @@ You need Python 3 in order to use this script
 
 Features implemented:
   Convert all bands with their gains and Qs
+  
 Features missing (might be added when I have time):
   1. Convert preamp
   2. Convert filter type (now all are converted as peak filters)
