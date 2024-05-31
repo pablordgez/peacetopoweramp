@@ -12,5 +12,5 @@ Features implemented:
 Features missing (might be added when I have time):
   1. Convert preamp
   2. Convert filter type (now all are converted as peak filters)
-  3. Allow to run from terminal with arguments
+  3. Allow to run from terminal with arguments to set file name or path
   4. Refactor all the code, because it's very unreadable and there probably is a better way to write json than this, same goes for reading the source file
