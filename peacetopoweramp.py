@@ -1,3 +1,5 @@
+import json
+
 if __name__ == "__main__":
     f = open("preset.peace", "r")
     d = open("preset.json", "w")
@@ -24,13 +26,25 @@ if __name__ == "__main__":
             q.append(line.split("=")[1])
         else:
             pass
+        
+    destDict = {
+        "name" : "MyPreset",
+        "preamp" : 0,
+        "parametric" : True,
+        "bands" : []
+    }
 
-    destString = "[{\n\"name\": \"MyPreset\",\n\"preamp\":0,\n\"parametric\": true,\n\"bands\": ["
     for i in range(len(freqs)):
-        destString += "{\n\"type\": 3,\n\"channels\":0,\n\"frequency\": " + freqs[i] + ", \n\"q\":" + q[i] + ",\n\"gain\": " + gains[i] +",\n\"color\": 0},"
-    
-    destString = destString[:-1]
-    destString += "]}]"
+        destDict["bands"].append({
+            "type" : 3,
+            "channels" : 0,
+            "frequency" : freqs[i],
+            "q" : q[i],
+            "gain" : gains[i],
+            "color" : 0
+        })
+
+    destString = "[" + json.dumps(destDict, indent=4) + "]"
 
     d.write(destString)
 
